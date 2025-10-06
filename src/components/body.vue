@@ -1,5 +1,5 @@
 <template>
-	<main class="p-6 bg-gray-50 min-h-[300px]">
-		<p>Nội dung chính của trang ở đây</p>
-	</main>
+	<div class="container">
+		<h1 class="text-2xl font-bold">Trang chủ</h1>
+	</div>
 </template>

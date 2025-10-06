@@ -69,6 +69,12 @@ export default defineNuxtConfig({
           type: 'image/svg+xml'
         },
       ],
+      // style: [
+      //   {
+      //     innerHTML: '@import "tailwindcss/base"; @import "tailwindcss/components";',
+      //     tagPriority: 'critical',
+      //   },
+      // ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
@@ -83,9 +89,9 @@ export default defineNuxtConfig({
     provider: 'ipx',
     format: ['webp', 'avif'],
     domains: [],
-    experimental: {
-      disableImageOptimization: true,
-    },
+    // experimental: {
+    //   disableImageOptimization: true,
+    // },
   },
 
   experimental: {
@@ -93,4 +99,12 @@ export default defineNuxtConfig({
   },
 
   modules: ["@nuxt/image"],
+  hooks: {
+    "vite:extendConfig"(config, { isClient }) {
+      if (isClient) {
+        config.build = config.build || {};
+        config.build.cssMinify = true;
+      }
+    },
+  },
 });

@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Futura";
+  src: url("/public/fonts/futura-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'MN HUNTER';
+  src: url("https://file.hstatic.net/1000230642/file/mnhunter_36cbb3da6caf4c81a0b2ecf64d91b8da.woff2") format("woff2"), url("https://file.hstatic.net/1000230642/file/mnhunter.otf") format("opentype"); }
+
+body {
+  font-family: "Futura", sans-serif !important;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

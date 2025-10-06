@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import { Config } from "tailwindcss";
 
 const config: Config = {
   content: [
@@ -12,7 +12,18 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        baiJamjuree: ["var(--font-bai-jamjuree)"],
+        hunter: ['MN HUNTER', 'sans-serif'],
+        futura: ['Futura', 'sans-serif'],
+      },
+      container: {
+        center: true,
+        screens: {
+          sm: "640px",
+          md: "768px",
+          lg: "1024px",
+          xl: "1280px",
+          "2xl": "1536px",
+        },
       },
       padding: {
         "1": "1px",
@@ -70,6 +81,12 @@ const config: Config = {
         grayLight: "#979393",
         blueDark: "#134ea0",
         blueLight: "#2972e7",
+        hoverBlue: "#0056b3",
+        orange: {
+          DEFAULT: "#FF3300",
+          light: "#FF6633",
+          dark: "#CC2900",
+        },
         background: {
           DEFAULT: "#EFEFEF",
           grayDark: "#EFEFEF",
@@ -77,7 +94,7 @@ const config: Config = {
           primary: "#ff3D00",
           secondary: "#134EA0",
           dark: "#212026",
-          light: "#FFFFFF",
+          white: "#FFFFFF",
           black: "#000000",
           error: "#ed4e4e",
           danger: "#e71a3c",
@@ -134,6 +151,72 @@ const config: Config = {
       gridTemplateColumns: {
         14: "repeat(14, minmax(0, 1fr))",
       },
+      keyframes: {
+        "drawer-in": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(0)" },
+        },
+        "drawer-out": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "fade-out": {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
+        "slide-in-right": {
+          "0%": { transform: "translateX(100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        "slide-out-right": {
+          "0%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { transform: "translateX(100%)", opacity: "0" },
+        },
+        "slide-in-left": {
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
+        "slide-out-left": {
+          "0%": { transform: "translateX(0)", opacity: "1" },
+          "100%": { transform: "translateX(-100%)", opacity: "0" },
+        },
+        "slide-down": {
+          "0%": { transform: "translateY(-10%)", opacity: "0" },
+          "100%": { transform: "translateY(0)", opacity: "1" },
+        },
+        "slide-up": {
+          "0%": { transform: "translateY(0)", opacity: "1" },
+          "100%": { transform: "translateY(-10%)", opacity: "0" },
+        },
+        slider: {
+          '0%, 20%': { transform: 'translateX(0%)' },
+          '25%, 45%': { transform: 'translateX(-100%)' },
+          '50%, 70%': { transform: 'translateX(-200%)' },
+          '75%, 95%': { transform: 'translateX(-300%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+      },
+      animation: {
+        "slide-in-right": "slide-in-right 0.3s ease-out",
+        "slide-out-left": "slide-out-left 0.3s ease-in forwards",
+        "slide-in-left": "slide-in-left 0.3s ease-out",
+        "slide-out-right": "slide-out-right 0.3s ease-in forwards",
+        "fade-in": "fade-in 0.3s ease-out",
+        "fade-out": "fade-out 0.3s ease-in forwards",
+        "slide-down": "slide-down 0.25s ease-out",
+        "slide-up": "slide-up 0.25s ease-in forwards",
+        slider: 'slider 16s ease-in-out infinite',
+      },
+      safelist: [
+        "animate-slide-in-right",
+        "animate-slide-out-right",
+        "animate-slide-in-left",
+        "animate-slide-out-left",
+      ],
     },
   },
   plugins: [],
