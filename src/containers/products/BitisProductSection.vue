@@ -12,9 +12,9 @@ interface IProps {
 }
 
 const props = defineProps<IProps>();
-
 const products = ref<IBitisProduct[]>([]);
 const loading = ref(true);
+const hoveredId = ref<number | null>(null);
 
 const fetchProducts = async () => {
   try {
@@ -47,12 +47,19 @@ onMounted(fetchProducts);
 
     <div v-if="!loading" class="grid gap-3 grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 min-h-[500px]">
       <article v-for="item in products" :key="item.id"
-        class="relative border overflow-hidden bg-white shadow-sm hover:shadow-lg transition">
-        <div class="relative w-full aspect-square bg-gray-50 overflow-hidden">
-          <NuxtImg :src="`${item.image?.src}?w=400&h=400&format=webp`" :alt="item.title" width="310" height="310"
-            fit="contain" format="webp" sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-            class="object-contain w-full h-full" placeholder="empty"
-            :fetchpriority="item.id === products[0]?.id ? 'high' : 'auto'" loading="lazy" decoding="async" />
+        class="relative border overflow-hidden bg-white shadow-sm hover:shadow-lg transition"
+        @mouseenter="hoveredId = item.id" @mouseleave="hoveredId = null">
+        <div class="relative w-full aspect-square bg-gray-50 overflow-hidden cursor-pointer">
+          <NuxtImg :src="item.images?.[0]?.src || item.image?.src" :alt="item.title" width="310" height="310"
+            fit="contain" format="webp" class="object-contain w-full h-full transition-opacity duration-500"
+            :class="{ 'opacity-0': hoveredId === item.id }" placeholder="empty" loading="lazy" decoding="async" />
+
+          <!-- Ảnh hover -->
+          <NuxtImg v-if="item.images?.[1]?.src" :src="item.images[1].src" :alt="item.title" width="310" height="310"
+            fit="contain" format="webp"
+            class="absolute inset-0 object-contain w-full h-full opacity-0 transition-opacity duration-500"
+            :class="{ 'opacity-100': hoveredId === item.id }" placeholder="empty" loading="lazy" decoding="async" />
+
           <span v-if="isNewProduct(item.tags)"
             class="absolute top-2 left-2 bg-green-600 text-white text-xs px-10 py-2 rounded">
             Mới
@@ -77,9 +84,11 @@ onMounted(fetchProducts);
             <p class="text-lg text-black">
               {{ formatCurrency(item.variants?.[0]?.price) }}
             </p>
+
             <template v-if="
               item.variants?.[0]?.compare_at_price &&
-              Number(item.variants?.[0]?.compare_at_price) > Number(item.variants?.[0]?.price)
+              Number(item.variants?.[0]?.compare_at_price) >
+              Number(item.variants?.[0]?.price)
             ">
               <p class="text-[17px] text-black line-through">
                 {{ formatCurrency(item.variants?.[0]?.compare_at_price) }}
@@ -87,10 +96,16 @@ onMounted(fetchProducts);
 
               <span
                 class="text-[#e20000] border border-[#e20000] bg-[#fff0f0] text-[14px] font-medium px-[8px] py-[2px] rounded-md">
-                {{ formatDiscount(item.variants?.[0]?.price, item.variants?.[0]?.compare_at_price) }}
+                {{ formatDiscount(
+                  item.variants?.[0]?.price,
+                  item.variants?.[0]?.compare_at_price
+                ) }}
               </span>
             </template>
-            <p class="text-red-600 text-xs">Đã bán: {{ item.sole_quantity }}</p>
+
+            <p class="text-red-600 text-xs">
+              Đã bán: {{ item.sole_quantity }}
+            </p>
           </div>
         </div>
       </article>
@@ -99,6 +114,7 @@ onMounted(fetchProducts);
     <div v-else class="text-center py-10 text-gray-500 min-h-[500px] flex items-center justify-center">
       Đang tải sản phẩm...
     </div>
+
     <div v-if="!loading && products.length > 0" class="mt-10 text-center uppercase tracking-wide">
       <NuxtLink :to="`https://bitis.com.vn/collections/${props.collection}`"
         class="inline-block text-14 font-semibold text-black border-b-[2px] border-black transition-all duration-300">

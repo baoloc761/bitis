@@ -46,7 +46,7 @@ export default defineNuxtConfig({
       chunkSizeWarningLimit: 600,
       rollupOptions: {
         output: {
-          manualChunks(id) {
+          manualChunks(id: string | string[]) {
             if (id.includes('node_modules')) {
               return 'vendor';
             }

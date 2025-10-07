@@ -18,6 +18,6 @@ import { CONTENT_BANNERS } from "@/constants/images";
     </div>
 
   </section>
-  <NuxtImg src="/images/banners/banner_stitch_.webp" width="510" height="180" format="webp" quality="85" loading="lazy"
+  <NuxtImg src="/images/banners/banner_stitch_.webp" alt="stitch" width="510" height="180" format="webp" quality="85" loading="lazy"
     decoding="async" class="w-full overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer" />
 </template>

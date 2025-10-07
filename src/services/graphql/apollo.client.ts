@@ -12,13 +12,31 @@ import { GraphQLError } from "graphql";
 const API_BASE =
   process.env.NUXT_PUBLIC_BITIS_API_BASE || "https://bitis.com.vn";
 
+const URL_BUILDERS: Record<string, (vars?: Record<string, unknown>) => string> = {
+  GetBitisProducts: (vars = {}) => {
+    const { collection, page, limit } = vars;
+    return `${API_BASE}/collections/${collection}/products.json?include=metafields[product,hrvmultilang_en]&page=${page}&limit=${limit}`;
+  },
+  GetBitisStores: () => `${API_BASE}/pages/get-data-store?view=data-store`,
+};
+
 const restFetchLink = new ApolloLink((operation, forward) => {
   return new Observable<FetchResult>((observer) => {
-    const { collection, page, limit } = operation.variables as Record<
-      string,
-      string | number
-    >;
-    const url = `${API_BASE}/collections/${collection}/products.json?include=metafields[product,hrvmultilang_en]&page=${page}&limit=${limit}`;
+    const opName = operation.operationName as unknown as string;
+    if (!opName) {
+      observer.error(new Error("Operation name is missing"));
+      observer.complete();
+      return;
+    }
+
+    const builder = URL_BUILDERS[opName];
+    if (typeof builder !== "function") {
+      observer.error(new Error(`Unsupported operation: ${opName}`));
+      observer.complete();
+      return;
+    }
+
+    const url = builder(operation.variables || {});
 
     fetch(url)
       .then((res) => res.json())
@@ -35,9 +53,7 @@ const errorLink = onError((err) => {
   };
 
   if (graphQLErrors?.length) {
-    graphQLErrors.forEach((e) =>
-      console.warn(`[GraphQL error]: ${e.message}`)
-    );
+    graphQLErrors.forEach((e) => console.warn(`[GraphQL error]: ${e.message}`));
   }
 
   if (networkError) {

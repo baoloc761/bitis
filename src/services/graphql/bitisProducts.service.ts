@@ -11,6 +11,7 @@ export async function getBitisProducts(
   const { data } = await bitisClient.query<{ products: IBitisProduct[] }>({
     query: GET_BITIS_PRODUCTS,
     variables: { collection, page, limit },
+    fetchPolicy: "no-cache",
   });
 
   return data?.products ?? [];

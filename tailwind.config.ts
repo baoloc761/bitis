@@ -82,6 +82,8 @@ const config: Config = {
         blueDark: "#134ea0",
         blueLight: "#2972e7",
         hoverBlue: "#0056b3",
+        bluePrimary: "#1b4ea0",
+        grayPrimary: "#757575",
         orange: {
           DEFAULT: "#FF3300",
           light: "#FF6633",

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import BitisProductsContainer from "@/containers/products/BitisProductSection.vue";
 import { BITIS_COLLECTIONS } from "@/constants/api";
-import { Post } from '@/components'
+import { PostContainer, NewsContainer, StoresContainer } from '@/components'
 </script>
 
 <template>
@@ -13,5 +13,7 @@ import { Post } from '@/components'
       :collection="section.collection"
     />
   </div>
-  <Post />
+  <PostContainer />
+  <NewsContainer />
+  <StoresContainer />
 </template>
