@@ -1,3 +1,5 @@
 export { default as Header } from './header.vue'
 export { default as Body } from './body.vue'
 export { default as Footer } from './footer.vue'
+export { default as BitisProductsContainer } from './products/BitisProductsContainer.vue'
+export { default as Post } from './contents/post.vue'

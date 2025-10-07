@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["node"],
+    "types": ["@types/node"],
+    "moduleResolution": "node",
+    "module": "esnext",
+    "target": "esnext",
+    "allowJs": true,
+    "strict": true,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["src/*"],
-      "@/components": ["src/components/index.ts"],
-      "@components": ["src/components/index.ts"],
-      "@components/*": ["src/components/*"],
-      "@pages/*": ["src/pages/*"],
-      "@services/*": ["src/services/*"],
-      "@context/*": ["src/context/*"],
-      "@images/*": ["src/images/*"],
-      "@types/*": ["src/model/*"]
+      "@/components/*": ["src/components/*"],
+      "@/containers/*": ["src/containers/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/services/*": ["src/services/*"],
+      "@/graphql/*": ["src/services/graphql/*"],
+      "@/context/*": ["src/context/*"],
+      "@/images/*": ["src/images/*"],
+      "@/types/*": ["src/model/*"],
+      "@/constants/*": ["src/constants/*"]
     }
   },
-  "exclude": ["node_modules", ".nuxt", "dist"],
-  "files": [],
-  "references": [
-    { "path": "./.nuxt/tsconfig.app.json" },
-    { "path": "./.nuxt/tsconfig.server.json" },
-    { "path": "./.nuxt/tsconfig.shared.json" },
-    { "path": "./.nuxt/tsconfig.node.json" }
-  ]
+  "exclude": ["node_modules", ".nuxt", "dist"]
 }

@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "Futura";
+  font-family: "Futura-REGULAR";
   src: url("/public/fonts/futura-regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -8,10 +8,23 @@
 
 @font-face {
   font-family: 'MN HUNTER';
-  src: url("https://file.hstatic.net/1000230642/file/mnhunter_36cbb3da6caf4c81a0b2ecf64d91b8da.woff2") format("woff2"), url("https://file.hstatic.net/1000230642/file/mnhunter.otf") format("opentype"); }
+  src: url("https://file.hstatic.net/1000230642/file/mnhunter_36cbb3da6caf4c81a0b2ecf64d91b8da.woff2") format("woff2"), url("https://file.hstatic.net/1000230642/file/mnhunter.otf") format("opentype");
+  font-display: swap;
+}
 
 body {
-  font-family: "Futura", sans-serif !important;
+  font-family: "Futura-REGULAR", sans-serif !important;
+}
+
+.sectionHeading-tab-new {
+  text-shadow: 0 0.1em 20px #ff0000, 0.05em -0.03em 0 #ff0000, 0.05em 0.005em 0 #ff0000, 0em 0.08em 0 #ff0000, 0.05em 0.08em 0 #ff0000, 0px -0.03em 0 #ff0000, -0.03em -0.03em 0 #ff0000, -0.03em 0.08em 0 #ff0000, -0.03em 0 0 #ff0000;
+  color: #ff0000 !important;
+  line-height: 2.2rem;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 0 0 10px 0;
+  text-align: center;
 }
 
 @tailwind base;

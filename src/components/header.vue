@@ -8,11 +8,10 @@ import { MAIN_MENU } from '@/constants/menu'
 
 const isMenuOpen = ref(false)
 const activeSubmenu = ref<number | null>(null)
-const transitionDirection = ref<'left' | 'right'>('right') // 👈 thêm dòng này
+const transitionDirection = ref<'left' | 'right'>('right')
 
 const toggleMenu = () => (isMenuOpen.value = !isMenuOpen.value)
 
-// 👇 chỉnh lại 2 hàm này cho có hướng chuyển động
 const openSubmenu = (index: number) => {
   transitionDirection.value = 'right'
   activeSubmenu.value = index
@@ -30,7 +29,6 @@ const currentMenu = computed(() => {
 
 <template>
   <header class="w-full relative z-50">
-    <!-- ✅ giữ nguyên toàn bộ phần header của bạn -->
     <div class="hidden md:block bg-dark text-white text-sm py-13">
       <div class="container mx-auto flex justify-between items-center px-4">
         <div class="flex items-center gap-2">
@@ -48,12 +46,9 @@ const currentMenu = computed(() => {
           <span class="text-gray-400">|</span>
           <NuxtLink to="/kiem-tra-don" class="hover:underline">Kiểm tra đơn hàng</NuxtLink>
           <span class="text-gray-400">|</span>
-
           <Languages />
-
           <NuxtLink to="https://b2b.bitis.com.vn/?utm_source=trade&utm_medium=b2b_header">
-            <NuxtImg src="/images/sell-b2b.jpg" alt="Bán hàng B2B" width="120" height="28"
-              class="hover:opacity-90 transition" />
+            <NuxtImg src="/images/sell-b2b.jpg" alt="Bán hàng B2B" width="120" height="28" />
           </NuxtLink>
         </div>
       </div>
@@ -62,7 +57,7 @@ const currentMenu = computed(() => {
     <div class="hidden md:flex bg-white border-b border-gray-100 shadow-sm">
       <div class="container mx-auto flex justify-between items-center">
         <NuxtLink to="/">
-          <img src="/images/logo.svg" alt="Biti's" class="w-[95px] h-[60px]" />
+          <NuxtImg src="/images/logo.svg" alt="Biti's" class="w-[95px] h-[60px]" />
         </NuxtLink>
 
         <HeaderNav />
@@ -71,13 +66,13 @@ const currentMenu = computed(() => {
           <div class="relative hidden md:block">
             <input type="text" placeholder="Bạn cần tìm gì..."
               class="w-[186px] h-[35px] bg-background-grayDark text-dark text-13 placeholder:text-grayLight pt-3 pr-8 pb-3 pl-40 focus:bg-white transition-all duration-200" />
-            <img src="/images/search.svg" alt="Tìm kiếm"
+            <NuxtImg src="/images/search.svg" alt="Tìm kiếm"
               class="absolute left-3 top-1/2 -translate-y-1/2 w-[16px] h-[16px] opacity-70 pointer-events-none" />
           </div>
 
           <div class="flex items-center gap-3">
             <button aria-label="Tài khoản">
-              <img src="/images/user.svg" alt="user" class="w-[22px] h-[22px]" />
+              <NuxtImg src="/images/user.svg" alt="user" class="w-[22px] h-[22px]" />
             </button>
             <button aria-label="Yêu thích" class="relative">
               <img :src="ICON_HEART" alt="Wishlist" class="w-[22px] h-[22px]" />
@@ -87,7 +82,7 @@ const currentMenu = computed(() => {
               </span>
             </button>
             <button aria-label="Giỏ hàng" class="relative">
-              <img src="/images/cart.svg" alt="cart" class="w-[22px] h-[22px]" />
+              <NuxtImg src="/images/cart.svg" alt="cart" class="w-[22px] h-[22px]" />
               <span
                 class="absolute -top-[6px] -right-[6px] bg-black text-white text-[10px] font-semibold rounded-full w-[16px] h-[16px] flex items-center justify-center border border-white shadow-md">
                 0
@@ -115,25 +110,25 @@ const currentMenu = computed(() => {
       </div>
 
       <NuxtLink to="/">
-        <img src="/images/logo.svg" alt="Biti's" class="h-[36px]" />
+        <NuxtImg src="/images/logo.svg" alt="Biti's" class="h-[36px]" />
       </NuxtLink>
 
       <div class="flex items-center gap-4">
         <button aria-label="Yêu thích">
-          <img :src="ICON_HEART" alt="Wishlist" class="w-[22px] h-[22px]" />
+          <NuxtImg :src="ICON_HEART" alt="Wishlist" class="w-[22px] h-[22px]" />
         </button>
         <button aria-label="Tài khoản">
-          <img src="/images/user.svg" alt="user" class="w-[22px] h-[22px]" />
+          <NuxtImg src="/images/user.svg" alt="user" class="w-[22px] h-[22px]" />
         </button>
         <button aria-label="Giỏ hàng">
-          <img src="/images/cart.svg" alt="cart" class="w-[22px] h-[22px]" />
+          <NuxtImg src="/images/cart.svg" alt="cart" class="w-[22px] h-[22px]" />
         </button>
       </div>
     </div>
 
     <transition enter-active-class="animate-slide-down" leave-active-class="animate-slide-up">
       <div v-if="isMenuOpen"
-        class="absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-xl overflow-hidden">
+        class="absolute top-50 left-0 w-full bg-white border-t border-gray-100 shadow-xl overflow-hidden">
         <transition mode="out-in"
           :enter-active-class="transitionDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'"
           :leave-active-class="transitionDirection === 'right' ? 'animate-slide-out-left' : 'animate-slide-out-right'">
@@ -160,7 +155,7 @@ const currentMenu = computed(() => {
 
               <button v-else @click="openSubmenu(index)" class="flex justify-between items-center w-full text-left">
                 <span>{{ menu.title }}</span>
-                <img src="/images/arrow-right.svg" alt="" class="w-[14px] opacity-70" />
+                <NuxtImg   src="/images/arrow-right.svg" alt="" class="w-[14px] opacity-70" />
               </button>
             </div>
           </div>
