@@ -19,3 +19,46 @@ export const CONTENT_BANNERS = [
     alt: "Gấu Chủ Tâm Sandal",
   },
 ];
+
+export const FOOTER_IMAGES = [
+  {
+    src: "/images/image_footer_6.webp",
+    alt: "Biti's Footer Image 6",
+    href: "https://bitis.com.vn/collections/balo-tui-xach",
+  },
+  {
+    src: "/images/image_footer_7.webp",
+    alt: "Biti's Footer Image 7",
+    href: "https://bitis.com.vn/collections/effortless-collection",
+  },
+  {
+    src: "/images/image_footer_8.webp",
+    alt: "Biti's Footer Image 8",
+    href: "https://bitis.com.vn/collections/cac-san-pham-thuoc-nhan-hieu-embrace",
+  },
+  {
+    src: "/images/image_footer_5.webp",
+    alt: "Biti's Footer Image 5",
+    href: "https://bitis.com.vn/collections/balo-tui-xach-gosto",
+  },
+  {
+    src: "/images/image_footer_4.webp",
+    alt: "Biti's Footer Image 4",
+    href: "https://bitis.com.vn/collections/helio",
+  },
+  {
+    src: "/images/image_footer_3.webp",
+    alt: "Biti's Footer Image 3",
+    href: "https://bitis.com.vn/collections/litebound",
+  },
+  {
+    src: "/images/image_footer_2.webp",
+    alt: "Biti's Footer Image 2",
+    href: "https://bitis.com.vn/collections/ucare-dep-y-te-dep-banh-mi",
+  },
+  {
+    src: "/images/image_footer_1.webp",
+    alt: "Biti's Footer Image 1",
+    href: "https://bitis.com.vn/products/sandal-da-that-gosto-sparkle-curve-gfw018288den-den",
+  },
+];

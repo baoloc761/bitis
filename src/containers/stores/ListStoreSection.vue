@@ -28,7 +28,7 @@ const filteredStores = computed(() => {
 </script>
 
 <template>
-  <section class="mx-auto py-10 px-4 mt-20 pt-[90px]" :style="{
+  <section class="mx-auto py-10 px-4 mt-20 pt-[90px] mb-[30px]" :style="{
     backgroundImage: `url('/images/banners/bg-content.webp')`,
     backgroundPosition: 'center top',
     backgroundRepeat: 'no-repeat',
@@ -64,7 +64,7 @@ const filteredStores = computed(() => {
                   <img src="/images/address.svg" alt="icon" width="20" height="20"
                     class="w-5 h-5 mt-1 opacity-70 select-none" loading="lazy" decoding="async" />
                   <div>
-                    <h3 class="text-bluePrimary text-[15px] font-semibold mb-1">
+                    <h3 class="text-bluePrimary text-[15px] mb-1">
                       {{ store.name }}
                     </h3>
                     <p class="text-[13px] text-grayPrimary leading-snug">

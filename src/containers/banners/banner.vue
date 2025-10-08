@@ -37,14 +37,12 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules'
 import type { PaginationOptions, AutoplayOptions } from 'swiper/types'
 
-// CSS import cần đủ cả 3 loại
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 import 'swiper/css/pagination'
 
 import { BANNERS } from '@/constants/images'
 
-// ✅ Định nghĩa options đúng kiểu để không cần as any
 const autoplay: AutoplayOptions = {
   delay: 4000,
   disableOnInteraction: false,
