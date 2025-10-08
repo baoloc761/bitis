@@ -1,7 +1,3 @@
-<script setup lang="ts">
-import { CONTENT_BANNERS } from "@/constants/images";
-</script>
-
 <template>
   <section class="relative pt-50 pb-30 bg-cover bg-center mb-[70px]"
     :style="{ backgroundImage: `url('/images/banners/bg-content.webp')`, backgroundPosition: 'center top', marginTop: '50px' }">
@@ -18,6 +14,11 @@ import { CONTENT_BANNERS } from "@/constants/images";
     </div>
 
   </section>
-  <NuxtImg src="/images/banners/banner_stitch_.webp" alt="stitch" width="510" height="180" format="webp" quality="85" loading="lazy"
-    decoding="async" class="w-full overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer" />
+  <NuxtImg src="/images/banners/banner_stitch_.webp" alt="stitch" width="510" height="180" format="webp" quality="85"
+    loading="lazy" decoding="async"
+    class="w-full overflow-hidden transition-transform duration-300 hover:scale-105 cursor-pointer" />
 </template>
+
+<script setup lang="ts">
+import { CONTENT_BANNERS } from "@/constants/images";
+</script>

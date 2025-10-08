@@ -6,7 +6,7 @@
       <!-- Left -->
       <div class="text-white text-center md:text-left">
         <h3
-          class="flex items-center justify-end md:justify-end gap-2 font-semibold text-[20px]"
+          class="flex items-center justify-center md:justify-end gap-2 font-semibold text-[20px]"
         >
           <img
             src="/images/send.svg"

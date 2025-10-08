@@ -1,32 +1,3 @@
-<script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
-import { getBitisStores } from "@/services/graphql/bitisStores.service";
-import { IBitisStore } from "@/modal/types/BitisStore";
-
-const stores = ref<IBitisStore[]>([]);
-const loading = ref(true);
-const selectedProvince = ref("Tất cả");
-const hoveredStore = ref<string | null>(null);
-
-onMounted(async () => {
-  try {
-    stores.value = await getBitisStores();
-  } finally {
-    loading.value = false;
-  }
-});
-
-const provinces = computed(() => {
-  const unique = Array.from(new Set(stores.value.map((s) => s.province)));
-  return ["Tất cả", ...unique];
-});
-
-const filteredStores = computed(() => {
-  if (selectedProvince.value === "Tất cả") return stores.value;
-  return stores.value.filter((store) => store.province === selectedProvince.value);
-});
-</script>
-
 <template>
   <section class="mx-auto py-10 px-4 mt-20 pt-[90px] mb-[30px]" :style="{
     backgroundImage: `url('/images/banners/bg-content.webp')`,
@@ -85,3 +56,32 @@ const filteredStores = computed(() => {
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { ref, computed, onMounted } from "vue";
+import { getBitisStores } from "@/services/graphql/bitisStores.service";
+import { IBitisStore } from "@/modal/types/BitisStore";
+
+const stores = ref<IBitisStore[]>([]);
+const loading = ref(true);
+const selectedProvince = ref("Tất cả");
+const hoveredStore = ref<string | null>(null);
+
+onMounted(async () => {
+  try {
+    stores.value = await getBitisStores();
+  } finally {
+    loading.value = false;
+  }
+});
+
+const provinces = computed(() => {
+  const unique = Array.from(new Set(stores.value.map((s) => s.province)));
+  return ["Tất cả", ...unique];
+});
+
+const filteredStores = computed(() => {
+  if (selectedProvince.value === "Tất cả") return stores.value;
+  return stores.value.filter((store) => store.province === selectedProvince.value);
+});
+</script>

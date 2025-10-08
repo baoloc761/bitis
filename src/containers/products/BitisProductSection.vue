@@ -1,44 +1,3 @@
-<script setup lang="ts">
-import { ref, onMounted } from "vue";
-import { getBitisProducts } from "@/services/graphql/bitisProducts.service";
-import { API_DEFAULT } from "@/constants/api";
-import { IBitisProduct } from "@/modal/types/Products";
-import { ICON_HEART } from "@/constants/icon";
-import { formatCurrency, formatDiscount } from "@/utils/formatCurrency";
-
-interface IProps {
-  title: string;
-  collection: string;
-}
-
-const props = defineProps<IProps>();
-const products = ref<IBitisProduct[]>([]);
-const loading = ref(true);
-const hoveredId = ref<number | null>(null);
-
-const fetchProducts = async () => {
-  try {
-    loading.value = true;
-    const result = await getBitisProducts(
-      props.collection,
-      API_DEFAULT.PAGE,
-      API_DEFAULT.LIMIT
-    );
-    products.value = result;
-  } finally {
-    loading.value = false;
-  }
-};
-
-const isNewProduct = (tags?: string[] | string): boolean => {
-  if (!tags) return false;
-  const tagString = Array.isArray(tags) ? tags.join(",") : tags;
-  return tagString.toLowerCase().includes("new");
-};
-
-onMounted(fetchProducts);
-</script>
-
 <template>
   <section class="bitis-section py-8 mt-[70px]">
     <p class="sectionHeading-tab-new drop-shadow-redStrong text-[20px] md:text-[26px] font-bold text-center uppercase">
@@ -123,3 +82,44 @@ onMounted(fetchProducts);
     </div>
   </section>
 </template>
+
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { getBitisProducts } from "@/services/graphql/bitisProducts.service";
+import { API_DEFAULT } from "@/constants/api";
+import { IBitisProduct } from "@/modal/types/Products";
+import { ICON_HEART } from "@/constants/icon";
+import { formatCurrency, formatDiscount } from "@/utils/formatCurrency";
+
+interface IProps {
+  title: string;
+  collection: string;
+}
+
+const props = defineProps<IProps>();
+const products = ref<IBitisProduct[]>([]);
+const loading = ref(true);
+const hoveredId = ref<number | null>(null);
+
+const fetchProducts = async () => {
+  try {
+    loading.value = true;
+    const result = await getBitisProducts(
+      props.collection,
+      API_DEFAULT.PAGE,
+      API_DEFAULT.LIMIT
+    );
+    products.value = result;
+  } finally {
+    loading.value = false;
+  }
+};
+
+const isNewProduct = (tags?: string[] | string): boolean => {
+  if (!tags) return false;
+  const tagString = Array.isArray(tags) ? tags.join(",") : tags;
+  return tagString.toLowerCase().includes("new");
+};
+
+onMounted(fetchProducts);
+</script>

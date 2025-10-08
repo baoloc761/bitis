@@ -1,3 +1,8 @@
+<template>
+  <ListStoreSection />
+  <RegisterSection />
+</template>
+
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
 
@@ -10,9 +15,3 @@ const RegisterSection = defineAsyncComponent(() =>
 );
 
 </script>
-
-<template>
-  <ListStoreSection />
-  <RegisterSection />
-</template>
-

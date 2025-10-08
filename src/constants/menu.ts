@@ -61,17 +61,52 @@ export const MAIN_MENU = [
   {
     title: "BÉ TRAI",
     link: "/be-trai",
+    children: [
+      { title: "Giày Thể Thao", link: "/be-trai/giay-the-thao" },
+      { title: "Sandal", link: "/be-trai/sandal" },
+      { title: "Dép", link: "/be-trai/dep" },
+      { title: "Giày & Sandal Tập Đi", link: "/be-trai/giay-sandal-tap-di" },
+    ],
   },
   {
     title: "BÉ GÁI",
     link: "/be-gai",
+    children: [
+      { title: "Giày Thể Thao", link: "/be-gai/giay-the-thao" },
+      { title: "Sandal", link: "/be-gai/sandal" },
+      { title: "Dép Bé Gái", link: "/be-gai/dep" },
+      { title: "Giày & Sandal Tập Đi", link: "/be-gai/giay-sandal-tap-di" },
+      { title: "Giày Búp Bê", link: "/be-gai/bup-be" },
+    ],
   },
   {
     title: "PHỤ KIỆN",
     link: "/phu-kien",
+    children: [
+      { title: "Balo", link: "/phu-kien/balo" },
+      { title: "Balo Trẻ Em", link: "/phu-kien/balo-tre-em" },
+      { title: "Túi Trẻ Em", link: "/phu-kien/tui-tre-em" },
+      { title: "Túi Người Lớn", link: "/phu-kien/tui-nguoi-lon" },
+      { title: "Ví", link: "/phu-kien/vi" },
+      { title: "Vớ Người Lớn", link: "/phu-kien/vo-nguoi-lon" },
+      { title: "Vớ Trẻ Em", link: "/phu-kien/vo-tre-em" },
+      { title: "Áo Thun & Áo Khoác", link: "/phu-kien/ao-thun-ao-khoac" },
+      { title: "Quần Dài & Quần Short", link: "/phu-kien/quan-dai-quan-short" },
+      { title: "Nón", link: "/phu-kien/non" },
+      { title: "Charm", link: "/phu-kien/charm" },
+      { title: "Lót Đế", link: "/phu-kien/lot-de" },
+      { title: "Dây Giày", link: "/phu-kien/day-giay" },
+      { title: "Gấu Bông", link: "/phu-kien/gau-bong" },
+      { title: "Xịt Khử Mùi", link: "/phu-kien/xit-khu-mui" },
+    ],
   },
   {
     title: "CHIA SẺ",
     link: "/chia-se",
+    children: [
+      { title: "Xu Hướng Thời Trang", link: "/chia-se/xu-huong-thoi-trang" },
+      { title: "Tư Vấn Chọn Size", link: "/chia-se/tu-van-chon-size" },
+      { title: "Kinh Nghiệm Hay", link: "/chia-se/kinh-nghiem-hay" },
+    ],
   },
 ];

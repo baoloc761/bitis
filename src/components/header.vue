@@ -1,32 +1,3 @@
-<script setup lang="ts">
-import { ref, computed } from 'vue'
-import { ICON_HEART } from '@/constants/icon'
-import { HeaderNav } from '@/containers'
-import { Languages } from '@/containers'
-import { Banners } from '@/containers'
-import { MAIN_MENU } from '@/constants/menu'
-
-const isMenuOpen = ref(false)
-const activeSubmenu = ref<number | null>(null)
-const transitionDirection = ref<'left' | 'right'>('right')
-
-const toggleMenu = () => (isMenuOpen.value = !isMenuOpen.value)
-
-const openSubmenu = (index: number) => {
-  transitionDirection.value = 'right'
-  activeSubmenu.value = index
-}
-const closeSubmenu = () => {
-  transitionDirection.value = 'left'
-  activeSubmenu.value = null
-}
-
-const currentMenu = computed(() => {
-  if (activeSubmenu.value === null) return null
-  return MAIN_MENU[activeSubmenu.value] || null
-})
-</script>
-
 <template>
   <header class="w-full relative z-50">
     <div class="hidden md:block bg-dark text-white text-sm py-13">
@@ -175,3 +146,32 @@ const currentMenu = computed(() => {
     <Banners />
   </header>
 </template>
+
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+import { ICON_HEART } from '@/constants/icon'
+import { HeaderNav } from '@/containers'
+import { Languages } from '@/containers'
+import { Banners } from '@/containers'
+import { MAIN_MENU } from '@/constants/menu'
+
+const isMenuOpen = ref(false)
+const activeSubmenu = ref<number | null>(null)
+const transitionDirection = ref<'left' | 'right'>('right')
+
+const toggleMenu = () => (isMenuOpen.value = !isMenuOpen.value)
+
+const openSubmenu = (index: number) => {
+  transitionDirection.value = 'right'
+  activeSubmenu.value = index
+}
+const closeSubmenu = () => {
+  transitionDirection.value = 'left'
+  activeSubmenu.value = null
+}
+
+const currentMenu = computed(() => {
+  if (activeSubmenu.value === null) return null
+  return MAIN_MENU[activeSubmenu.value] || null
+})
+</script>

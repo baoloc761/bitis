@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "types": ["@types/node"],
+    "types": ["@types/node", "vitest"],
     "moduleResolution": "node",
     "module": "esnext",
     "target": "esnext",

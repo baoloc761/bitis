@@ -8,11 +8,21 @@ export async function getBitisProducts(
   page: number = API_DEFAULT.PAGE,
   limit: number = API_DEFAULT.LIMIT
 ): Promise<IBitisProduct[]> {
-  const { data } = await bitisClient.query<{ products: IBitisProduct[] }>({
-    query: GET_BITIS_PRODUCTS,
-    variables: { collection, page, limit },
-    fetchPolicy: "no-cache",
-  });
+  console.log("[BitisProducts] START", { collection, page, limit });
 
-  return data?.products ?? [];
+  try {
+    const { data } = await bitisClient.query<{ products: IBitisProduct[] }>({
+      query: GET_BITIS_PRODUCTS,
+      variables: { collection, page, limit },
+      fetchPolicy: "no-cache",
+    });
+
+    const count = data?.products?.length || 0;
+    console.log("[BitisProducts] SUCCESS", `${count} products fetched`);
+
+    return data?.products ?? [];
+  } catch (err: any) {
+    console.error("[BitisProducts] ERROR", err.message);
+    return [];
+  }
 }

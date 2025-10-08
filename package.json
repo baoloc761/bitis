@@ -7,7 +7,10 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "start": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "test:watch": "vitest --watch",
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@apollo/client": "^4.0.7",
@@ -20,6 +23,8 @@
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.14.0",
-    "@types/node": "^24.6.2"
+    "@types/node": "^24.7.0",
+    "@vitest/ui": "^3.2.4",
+    "vitest": "^3.2.4"
   }
 }

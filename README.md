@@ -1,75 +1,31 @@
-# Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+---
 
-## Setup
+## 🧩 Mô tả cấu trúc dự án
 
-Make sure to install dependencies:
+- **components/** → UI component tái sử dụng
+- **containers/** → component lớn, có logic
+- **services/** → chứa toàn bộ logic gọi API, chia thành `graphql` và `rest`
+- **constants/** → các giá trị cố định dùng trong toàn dự án
+- **utils/** → hàm helper chung, không phụ thuộc framework
+- **__tests__/** → toàn bộ unit test viết bằng Vitest
+- **pages/** → cấu trúc routing tự động của Nuxt
+- **plugins/** → đăng ký plugin toàn cục (Apollo, Ant Design,...)
+- **types/** → định nghĩa type / interface TypeScript dùng chung
 
-```bash
-# npm
-npm install
+---
 
-# pnpm
-pnpm install
+## 🧪 Testing
+- Sử dụng **Vitest** để test logic của services (`src/__tests__/`).
+- Chạy test:
+  ```bash
+  npm run test
 
-# yarn
-yarn install
+---
+TẠO FILE .env ở cấp gốc link là: NUXT_PUBLIC_BITIS_API_BASE=https://bitis.com.vn
+---
 
-# bun
-bun install
-```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+---
+RUN project đầu tiên npm run install -> npm run build -> npm run start
+---
