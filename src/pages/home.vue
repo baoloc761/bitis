@@ -1,5 +1,5 @@
   <script setup lang="ts">
-  import { Header, Body, Footer, GoToTop } from '@/components'
+  import { Header, Body, Footer, GoToTop, CouponList } from '@/components'
   </script>
 
   <template>
@@ -8,5 +8,6 @@
       <Body />
       <Footer />
       <GoToTop />
+      <CouponList />
     </div>
   </template>

@@ -99,7 +99,7 @@
 
     <transition enter-active-class="animate-slide-down" leave-active-class="animate-slide-up">
       <div v-if="isMenuOpen"
-        class="absolute top-50 left-0 w-full bg-white border-t border-gray-100 shadow-xl overflow-hidden">
+        class="absolute top-50 left-0 w-full bg-white border-t border-gray-100 shadow-xl overflow-hidden z-[60]">
         <transition mode="out-in"
           :enter-active-class="transitionDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'"
           :leave-active-class="transitionDirection === 'right' ? 'animate-slide-out-left' : 'animate-slide-out-right'">
