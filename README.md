@@ -25,7 +25,9 @@
 TẠO FILE .env ở cấp gốc link là: NUXT_PUBLIC_BITIS_API_BASE=https://bitis.com.vn
 ---
 
-
----
-RUN project đầu tiên npm run install -> npm run build -> npm run start
----
+## 🧪 run
+- Chạy source:
+  ```bash
+  npm i
+  npm run build
+  npm run start
