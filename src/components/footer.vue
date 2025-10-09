@@ -4,7 +4,7 @@
       <NuxtLink v-for="(img, index) in FOOTER_IMAGES" :key="index" :to="img.href" target="_blank"
         rel="noopener noreferrer" external>
         <NuxtImg :src="img.src" :alt="img.alt" format="webp" width="216" height="216" quality="85" loading="lazy"
-          class="object-cover" />
+          class="object-cover w-full" />
       </NuxtLink>
     </div>
 
