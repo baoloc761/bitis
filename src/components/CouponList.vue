@@ -31,12 +31,12 @@
         </button>
       </div>
 
-      <div class="max-h-[420px] overflow-y-auto divide-y divide-gray-100 bg-[#d9f1fd]">
-        <div v-for="(coupon, i) in coupons" :key="i" class="flex gap-3 p-4 hover:bg-gray-50 transition">
-          <NuxtImg :src="coupon.image" alt="Coupon" width="55" height="55" format="webp"
-            class="rounded-md object-contain bg-[#fff8ec] flex-shrink-0" />
+      <div class="max-h-[420px] overflow-y-auto bg-[#d9f1fd] p-10">
+        <div v-for="(coupon, i) in coupons" :key="i" class="flex mb-[10px]">
+          <NuxtImg :src="coupon.image" alt="Coupon" width="100" height="100" format="webp"
+            class="bg-white flex-shrink-0 px-10 py-10 rounded-[15px] border-r border-dashed border-gray-300" />
 
-          <div class="flex-1">
+          <div class="flex-1 bg-white px-5 py-10 rounded-[15px]">
             <h4 class="text-[15px] font-semibold text-gray-800 mb-[2px]">
               {{ coupon.title }}
             </h4>
@@ -51,7 +51,7 @@
                 </span>
               </p>
               <button @click="copyCode(coupon.code)"
-                class="bg-[#f7f7f7] text-[12px] text-[#333] border border-gray-200 px-3 py-[3px] rounded hover:bg-gray-100 transition">
+                class="bg-[#f1c14f] text-[12px] text-white py-[5px] px-[7px] rounded-full">
                 Sao chép mã
               </button>
             </div>
@@ -59,7 +59,7 @@
         </div>
       </div>
 
-      <div class="px-5 py-3 text-[13px] text-gray-600 border-t leading-snug">
+      <div class="p-[10px] text-[13px leading-snug bg-[#d9f1fd]">
         <p>
           • Thời gian áp dụng mã từ
           <span class="font-semibold">{{ startDate }}</span> đến
@@ -89,30 +89,3 @@ function copyCode(code: string) {
   alert(`Đã sao chép mã: ${code}`);
 }
 </script>
-
-<style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.25s ease;
-}
-
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translate(-50%, 20%);
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  transform: translate(-50%, 20%);
-}
-</style>
